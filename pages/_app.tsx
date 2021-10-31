@@ -1,27 +1,15 @@
 /* eslint-disable react/jsx-props-no-spreading */
 import React from "react";
 import { AppProps } from "next/app";
-import { createGlobalStyle, ThemeProvider } from "styled-components";
-
-const GlobalStyle = createGlobalStyle`
-  body {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
-`;
-
-const theme = {
-  colors: {
-    primary: "#0070f3",
-  },
-};
+import { ThemeProvider } from "styled-components";
+import GlobalStyle from "../src/theme/GlobalStyle";
+import theme from "../src/theme";
 
 const App: React.FC<AppProps> = ({ Component, pageProps }) => {
   return (
     <>
-      <GlobalStyle />
       <ThemeProvider theme={theme}>
+        <GlobalStyle />
         <Component {...pageProps} />
       </ThemeProvider>
     </>
